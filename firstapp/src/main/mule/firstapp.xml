@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="56534fc2-c00d-4deb-b753-439f28ec2079" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="firstappFlow" doc:id="6878bdf2-f08e-4e23-b805-c92753e1e5c3" >
+		<http:listener doc:name="Listener" doc:id="ae44e9fc-4914-40ff-a9b0-86985d4f6d9c" config-ref="HTTP_Listener_config" path="/test"/>
+		<set-payload value='"Welome to Mulesoft training"' doc:name="Set Payload" doc:id="f1e6b40a-55d9-476c-ae2f-9b27a37421ca" />
+		<logger level="INFO" doc:name="Logger" doc:id="4f1a5ce8-bc04-46eb-9773-7ef8e50b10dd" message='"app created successfully"'/>
+	</flow>
+</mule>
